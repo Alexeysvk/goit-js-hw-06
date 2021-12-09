@@ -1,15 +1,14 @@
-const el = {
-  changeColor: document.querySelector(".change-color"),
-  selectedColor: document.querySelector(".color"),
-};
+const spnEl = document.querySelector('.color');
+const btnEl = document.querySelector('.change-color');
+const color = getRandomHexColor()
+
+btnEl.addEventListener('click', () => {
+    const color = getRandomHexColor()
+    document.body.style.backgroundColor = color;
+    spnEl.textContent = color;
+    console.log(color);
+})
 
 function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-
-function onColorChange() {
-  document.body.style.backgroundColor = getRandomHexColor();
-  el.selectedColor.textContent = getRandomHexColor();
-}
-
-el.changeColor.addEventListener("click", onColorChange);
