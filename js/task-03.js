@@ -1,3 +1,4 @@
+'use strict';
 const images = [
   {
     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
@@ -12,3 +13,12 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const galleryRef = document.querySelector('.gallery');
+
+const addImages = images.map(img => {
+  const imgToAdd = `<li class="gallery__item"><img src="${img.url}" alt="${img.alt}"></li>`;
+  return imgToAdd;
+});
+
+galleryRef.insertAdjacentHTML('beforeend', addImages.join(' '));
